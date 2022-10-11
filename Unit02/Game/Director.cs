@@ -10,11 +10,11 @@ namespace Unit02.Hilo
     /// </summary>
     public class Director
     {
-        List<Card> _cards = new List<Card>();
-        bool _isPlaying = true;
-        int _totalScore = 300;
-        int _correctGuess = 100;
-        int _wrongGuess = -75;
+        List<Card> cards = new List<Card>();
+        bool stillPlaying = true;
+        int totalScore = 300;
+        int correctGuess = 100;
+        int wrongGuess = -75;
 
         int currentCard;
         int newCard;
@@ -27,7 +27,7 @@ namespace Unit02.Hilo
             for (int i = 0; i < 1; i++)
             {
                 Card card = new Card();
-                _cards.Add(card);
+                cards.Add(card);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Unit02.Hilo
         /// </summary>
         public void StartGame()
         {
-            while (_isPlaying)
+            while (stillPlaying)
             {
                 DoOutputs();
                 isPlaying();
@@ -49,21 +49,21 @@ namespace Unit02.Hilo
         /// </summary>
         public void DoOutputs()
         {
-             if (!_isPlaying)
+             if (!stillPlaying)
             {
                 return;
             }
 
-            foreach (Card card in _cards)
+            foreach (Card card in cards)
             {
                 card.Draw();
-                currentCard = card._cardNumber;
+                currentCard = card.cardNumber;
             }
 
-            foreach (Card card in _cards)
+            foreach (Card card in cards)
             {
                 card.Draw();
-                newCard = card._cardNumber;
+                newCard = card.cardNumber;
             }
 
             Console.WriteLine($"The current card is: {currentCard}");
@@ -74,19 +74,19 @@ namespace Unit02.Hilo
 
             if (userGuess.ToLower() == "h" && currentCard < newCard)
             {
-                _totalScore += _correctGuess;
+                totalScore += correctGuess;
             }
             else if (userGuess.ToLower() == "l" && currentCard > newCard)
             {
-                _totalScore += _correctGuess;
+                totalScore += correctGuess;
             }
             else if (userGuess.ToLower() == "h" && currentCard > newCard)
             {
-                _totalScore += _wrongGuess;
+                totalScore += wrongGuess;
             }
             else if (userGuess.ToLower() == "l" && currentCard < newCard)
             {
-                _totalScore += _wrongGuess;
+                totalScore += wrongGuess;
             }
             
         }
@@ -97,14 +97,14 @@ namespace Unit02.Hilo
         /// </summary>
         public void isPlaying()
         {
-            Console.WriteLine($"Your current score is: {_totalScore}");
+            Console.WriteLine($"Your current score is: {totalScore}");
             
-            if (_totalScore == 0)
+            if (totalScore == 0)
             {
-                _isPlaying = false;
+                stillPlaying = false;
             }
 
-            if (!_isPlaying)
+            if (!stillPlaying)
             {
                 return;
             }
@@ -112,7 +112,7 @@ namespace Unit02.Hilo
             currentCard = newCard;
             Console.Write("Do you want to play again? [y/n] ");
             string drawCard = Console.ReadLine();
-            _isPlaying = (drawCard.ToLower() == "y");
+            stillPlaying = (drawCard.ToLower() == "y");
         }
 
     }

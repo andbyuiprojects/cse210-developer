@@ -4,7 +4,7 @@ namespace Unit02.Hilo
 {
     public class Card
     {
-        public int _cardNumber = 0;
+        public int cardNumber = 0;
         
         /// <summary>
         /// Constructs a new instance of Card.
@@ -20,7 +20,7 @@ namespace Unit02.Hilo
         public void Draw()
         {
             Random random = new Random();
-            _cardNumber = random.Next(1,14);
+            cardNumber = random.Next(1,14);
         }
 
     }
