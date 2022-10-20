@@ -1,0 +1,2 @@
+This gam is similar to the classic hangman game. It is designed to have a list of words and provide a hint at the start for the user to narrow down the subject.
+When the user gets a guess wrong, a line is removed, if they get it right it stays. When the user runs out of gusses the jumper is out and the game ends.
