@@ -64,9 +64,9 @@ namespace unit04_greed
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
-                int r = 1;
-                int g = 255;
-                int b = 1;
+                int r = random.Next(0, 256);
+                int g = random.Next(0, 256);
+                int b = random.Next(0, 256);
                 Color color = new Color(r, g, b);
 
                 Artifact artifact = new Artifact();
@@ -88,9 +88,9 @@ namespace unit04_greed
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
-                int r = 255;
-                int g = 1;
-                int b = 1;
+                int r = random.Next(0, 256);
+                int g = random.Next(0, 256);
+                int b = random.Next(0, 256);
                 Color color = new Color(r, g, b);
 
                 Artifact artifact = new Artifact();
